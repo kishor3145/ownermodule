@@ -1,7 +1,7 @@
 package com.salonowner.ownermodule.controller;
 
 import com.salonowner.ownermodule.Entity.ServiceMaster;
-import com.salonowner.ownermodule.services.ServiceService;
+import com.salonowner.ownermodule.services.impl.ServiceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,14 +22,15 @@ public class ServiceController {
 
     @PostMapping("/add")
     public ServiceMaster addService(
-            @RequestPart("serviceName") String serviceName,
-            @RequestPart("serviceType") String serviceType,
-            @RequestPart("price") String price,
-            @RequestPart("discount") String discount,
-            @RequestPart("serviceTime") String serviceTime,
-            @RequestPart("location") String location,
-            @RequestPart("openingTime") String openingTime,
-            @RequestPart("image") MultipartFile image
+            @RequestParam("serviceName") String serviceName,
+            @RequestParam("serviceType") String serviceType,
+            @RequestParam("price") String price,
+            @RequestParam("discount") String discount,
+            @RequestParam("serviceTime") String serviceTime,
+            @RequestParam("location") String location,
+            @RequestParam("openingTime") String openingTime,
+            @RequestParam("image") MultipartFile image,
+            @RequestParam("ownerId") Long ownerId
     ) {
         System.out.println("✅ Backend API hit successfully!");
         System.out.println("Service Name: " + serviceName);
@@ -43,6 +44,7 @@ public class ServiceController {
         service.setServiceTime(serviceTime);
         service.setLocation(location);
         service.setOpeningTime(openingTime);
+        service.setOwnerId(ownerId);
 
         // Save or handle image as needed
         return serviceService.addService(service);

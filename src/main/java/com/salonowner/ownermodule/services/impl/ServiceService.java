@@ -1,4 +1,4 @@
-package com.salonowner.ownermodule.services;
+package com.salonowner.ownermodule.services.impl;
 
 import com.salonowner.ownermodule.Entity.ServiceMaster;
 import com.salonowner.ownermodule.repository.ServiceRepository;

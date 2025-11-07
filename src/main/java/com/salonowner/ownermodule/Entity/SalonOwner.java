@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
 @Table(name = "salon_owner")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

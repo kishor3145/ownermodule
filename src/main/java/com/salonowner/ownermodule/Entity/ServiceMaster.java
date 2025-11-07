@@ -6,8 +6,7 @@ import lombok.*;
 
 @Entity
 @Table(name = "service_master")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

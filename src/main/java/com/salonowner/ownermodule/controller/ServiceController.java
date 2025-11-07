@@ -1,7 +1,7 @@
 package com.salonowner.ownermodule.controller;
 
 import com.salonowner.ownermodule.Entity.ServiceMaster;
-import com.salonowner.ownermodule.services.impl.ServiceService;
+import com.salonowner.ownermodule.services.impl.ServiceServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,9 +14,9 @@ import java.util.List;
 @Slf4j
 public class ServiceController {
 
-    private final ServiceService serviceService;
+    private final ServiceServiceImpl serviceService;
 
-    public ServiceController(ServiceService serviceService) {
+    public ServiceController(ServiceServiceImpl serviceService) {
         this.serviceService = serviceService;
     }
 

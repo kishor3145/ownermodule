@@ -51,19 +51,16 @@ public class ServiceController {
     }
 
 
-    // 📋 Get all services by owner
     @GetMapping("/owner/{ownerId}")
     public List<ServiceMaster> getServicesByOwner(@PathVariable Long ownerId) {
         return serviceService.getServicesByOwner(ownerId);
     }
 
-    // ✏️ Update existing service
     @PutMapping("/update/{id}")
     public ServiceMaster updateService(@PathVariable Long id, @RequestBody ServiceMaster service) {
         return serviceService.updateService(id, service);
     }
 
-    // ❌ Delete service
     @DeleteMapping("/delete/{id}")
     public String deleteService(@PathVariable Long id) {
         serviceService.deleteService(id);

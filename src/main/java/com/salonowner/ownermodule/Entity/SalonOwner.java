@@ -25,6 +25,7 @@ public class SalonOwner {
     private String salonName;
     private String location;
     private String licenseImagePath;
+    private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
     private ApprovalStatus status = ApprovalStatus.PENDING_APPROVAL;

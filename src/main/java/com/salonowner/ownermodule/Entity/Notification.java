@@ -3,8 +3,6 @@ package com.salonowner.ownermodule.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 @Data
@@ -26,6 +24,13 @@ public class Notification {
     private String type;           // BOOKING_CONFIRMATION, CANCELLED, RESCHEDULE, OFFER, etc.
     private String deliveryMode;   // EMAIL, SMS, IN_APP
     private Boolean readStatus = false;
+//    @ManyToOne
+//    @JoinColumn(name = "booking_id")   // FK column in DB
+//    private BookingRecord bookingRecord;
+
+//    @ManyToOne
+//    @JoinColumn(name = "sender_id")
+//    private SalonOwner salonOwner;
 
     private LocalDateTime sentTime = LocalDateTime.now();
 }

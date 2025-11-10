@@ -37,5 +37,13 @@ public class Feedback {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime respondedAt;
 
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private SalonOwner salonOwner;
+
+    //from customer module
+    private Long customerId;
+
 }
 

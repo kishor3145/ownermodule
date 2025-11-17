@@ -38,4 +38,10 @@ public class NotificationServiceImpl implements NotificationService {
         notification.setReadStatus(true);
         return notificationRepository.save(notification);
     }
+
+    @Override
+    public Notification deleteNotification(Long notificationId) {
+        return null;
+    }
+
 }

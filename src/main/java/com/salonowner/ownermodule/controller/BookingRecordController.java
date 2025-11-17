@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -44,5 +45,11 @@ public class BookingRecordController {
     @GetMapping("/user/{userId}")
     public List<BookingRecord> getBookingsByUser(@PathVariable Long userId) {
         return service.getBookingsByUser(userId);
+    }
+
+
+    @GetMapping("/summary")
+    public Map<String, Double> getRevenueSummary() {
+        return service.getRevenueSummary();
     }
 }

@@ -44,6 +44,10 @@ public class ServiceServiceImpl {
         return serviceRepository.save(existing);
     }
 
+    public List<ServiceMaster> getAllServices() {
+        return serviceRepository.findAll();
+    }
+
     // ❌ Delete
     public void deleteService(Long id) {
         serviceRepository.deleteById(id);

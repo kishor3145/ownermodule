@@ -28,9 +28,12 @@ public class Staff {
     private String shiftStart;
     private String shiftEnd;
 
-    private Integer hours;
-    private Integer leaves;
+    private String workingHours;
+    private String leaves;
     private LocalDate joiningDate;
     private String imageUrl;
+
+    private Long ownerId;
+
 
 }

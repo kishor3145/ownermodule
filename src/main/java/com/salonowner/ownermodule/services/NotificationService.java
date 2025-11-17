@@ -9,4 +9,5 @@ public interface NotificationService {
     List<Notification> getNotificationsByReceiver(Long receiverId);
     List<Notification> getNotificationsBySender(Long senderId);
     Notification markAsRead(Long notificationId);
+    Notification deleteNotification(Long notificationId);
 }

@@ -7,7 +7,10 @@ import com.salonowner.ownermodule.services.BookingRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookingRecordServiceImpl implements BookingRecordService {
@@ -53,5 +56,20 @@ public class BookingRecordServiceImpl implements BookingRecordService {
     @Override
     public List<BookingRecord> getBookingsByUser(Long userId) {
         return repository.findByUserId(userId);
+    }
+
+    public Map<String, Double> getRevenueSummary() {
+        LocalDate today = LocalDate.now();
+
+        Double daily = repository.getDailyRevenue(today);
+        Double monthly = repository.getMonthlyRevenue(today);
+        Double yearly = repository.getYearlyRevenue(today);
+
+        Map<String, Double> result = new HashMap<>();
+        result.put("dailyRevenue", daily != null ? daily : 0.0);
+        result.put("monthlyRevenue", monthly != null ? monthly : 0.0);
+        result.put("yearlyRevenue", yearly != null ? yearly : 0.0);
+
+        return result;
     }
 }

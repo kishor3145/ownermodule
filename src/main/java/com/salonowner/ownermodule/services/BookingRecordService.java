@@ -4,6 +4,7 @@ package com.salonowner.ownermodule.services;
 import com.salonowner.ownermodule.Entity.BookingRecord;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BookingRecordService {
     BookingRecord createBooking(BookingRecord booking);
@@ -12,4 +13,5 @@ public interface BookingRecordService {
     BookingRecord getBookingById(Long id);
     List<BookingRecord> getAllBookings();
     List<BookingRecord> getBookingsByUser(Long userId);
+    public Map<String, Double> getRevenueSummary();
 }

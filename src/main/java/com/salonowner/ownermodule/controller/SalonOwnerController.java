@@ -2,6 +2,7 @@ package com.salonowner.ownermodule.controller;
 
 import com.salonowner.ownermodule.Entity.ApprovalStatus;
 import com.salonowner.ownermodule.Entity.SalonOwner;
+import com.salonowner.ownermodule.dto.LoginRequest;
 import com.salonowner.ownermodule.services.SalonOwnerService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -118,14 +119,16 @@ public class SalonOwnerController {
 
     // ✅ Owner Login
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestParam String email, @RequestParam String password) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         try {
-            SalonOwner owner = salonOwnerService.login(email, password);
+            SalonOwner owner = salonOwnerService.login(request.getEmail(), request.getPassword());
             return ResponseEntity.ok(owner);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+
 
 
     // ✅ View Owner Profile
